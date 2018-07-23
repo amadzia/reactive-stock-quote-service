@@ -21,7 +21,7 @@ public class StockQuoteClient {
 
     public Flux<Quote> getQuoteStream() {
 
-        String url = "http://" + host + port;
+        String url = "http://" + host + ":" + port;
 
         log.debug("Url: " + url);
 
@@ -33,7 +33,6 @@ public class StockQuoteClient {
                 .accept(MediaType.APPLICATION_STREAM_JSON)
                 .retrieve()
                 .bodyToFlux(Quote.class);
-
 
     }
 }
